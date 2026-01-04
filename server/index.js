@@ -70,7 +70,7 @@ app.post('/bucketlists', async (req, res) => {
 });
 
 app.get('/bucketlists', async (req, res) => {
-    const bucketlists = await BucketList.find();
+    const bucketlists = await BucketList.find().sort({isComplete : 1, priority: 1})
 
     res.json({
         success: true,
